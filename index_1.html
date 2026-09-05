@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══════════════════════════════════════════════════════════════
+       [소개 홈] 연구회 상설 페이지입니다.
+       세미나가 바뀔 때 이 파일에서 고칠 곳은 딱 두 군데입니다.
+         [홈-1] 다가오는 세미나 배너
+         [홈-2] 지난 활동 아카이브에 끝난 회차 추가
+       세미나 내용 자체는 apply.html 에서 고칩니다.
+       ══════════════════════════════════════════════════════════════ -->
+
+  <title>국회 기술과 정치 연구회 Tech &amp; Politics</title>
+  <meta name="description" content="에너지, AI, 조선, 방산, 핵심광물, 우주 — 전략기술이 국제정치·안보·외교와 교차하는 지점을 분석하는 국회 연구모임입니다.">
+  <meta property="og:title" content="국회 기술과 정치 연구회 Tech &amp; Politics">
+  <meta property="og:description" content="기술이 정치를 만나는 곳에서 일하고 연구합니다. 에너지 · AI · 조선 · 방산 · 핵심광물 · 우주">
+  <meta property="og:image" content="https://siriusiq-glitch.github.io/tech-and-politics/images/og-home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="국회 기술과 정치 연구회 Tech &amp; Politics">
+  <meta property="og:url" content="https://siriusiq-glitch.github.io/tech-and-politics/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="국회 기술과 정치 연구회 Tech &amp; Politics">
+  <meta name="twitter:description" content="기술이 정치를 만나는 곳에서 일하고 연구합니다.">
+  <meta name="twitter:image" content="https://siriusiq-glitch.github.io/tech-and-politics/images/og-home.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+/* ══════════════════════════════════════════════════════════════
+   국회 기술과 정치 연구회 Tech & Politics — 공통 스타일
+   index.html(소개 홈)과 apply.html(세미나 신청)이 함께 씁니다.
+   여기를 고치면 두 페이지가 같이 바뀝니다.
+   ══════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #111;
+  --gray-dark: #333;
+  --gray: #666;
+  --gray-light: #999;
+  --border: #e0e0e0;
+  --bg-light: #f7f7f5;
+  --accent: #1a3a6b;
+  --accent-light: #e8edf5;
+  --gold: #ecc84a;
+  --white: #fff;
+  --font: 'Noto Sans KR', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ── NAV ───────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 16px;
+}
+
+.nav-left { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+
+.nav-brand {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-sub {
+  font-size: 12px;
+  color: var(--gray);
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-links { display: flex; align-items: center; gap: 20px; }
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--gray);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links a:hover { color: var(--black); }
+
+.nav-links a.nav-apply {
+  background: var(--black);
+  color: var(--white);
+  font-weight: 700;
+  padding: 7px 16px;
+}
+
+.nav-links a.nav-apply:hover { background: var(--accent); color: var(--white); }
+
+/* ── HERO (이미지 없이 CSS만으로) ───────── */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background-color: #0b111e;
+  background-image:
+    radial-gradient(circle at 88% 8%, rgba(236,200,74,0.20) 0%, rgba(236,200,74,0) 55%),
+    radial-gradient(circle at 2% 100%, rgba(40,90,180,0.28) 0%, rgba(40,90,180,0) 60%),
+    linear-gradient(to bottom, #16203a 0%, #0b111e 100%);
+  min-height: 78vh;
+  padding: 140px 5vw 72px;
+}
+
+.hero.hero-short { min-height: 62vh; }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 940px; }
+
+.hero-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.62);
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+
+.hero-label::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 3px;
+  background: var(--gold);
+  margin-top: 16px;
+}
+
+.hero-title {
+  font-size: clamp(34px, 5.4vw, 66px);
+  font-weight: 900;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.hero-title .hl { color: var(--gold); }
+
+.hero-sub {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: rgba(255,255,255,0.78);
+  font-weight: 300;
+  margin-bottom: 14px;
+  max-width: 680px;
+  line-height: 1.75;
+}
+
+.hero-when {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+  margin-bottom: 36px;
+  letter-spacing: 0.01em;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 30px;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s;
+}
+
+.hero-cta:hover { opacity: 0.85; }
+
+/* ── SECTIONS ──────────────────────────── */
+section {
+  padding: 80px 5vw;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin-bottom: 32px;
+}
+
+/* ── 다가오는 세미나 배너 (소개 홈 상단) ── */
+.upnext { background: var(--accent); border-bottom: none; }
+
+.upnext-inner {
+  max-width: 1120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.upnext-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.upnext-title {
+  font-size: clamp(21px, 2.6vw, 30px);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.upnext-meta {
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.7;
+}
+
+.upnext-cta {
+  display: inline-block;
+  background: var(--white);
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 30px;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.upnext-cta:hover { opacity: 0.86; }
+
+/* ── APPLY (세미나 개요 + 신청 폼) ──────── */
+.apply { background: var(--bg-light); }
+
+.apply-grid {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 1120px;
+}
+
+.brief-card,
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 36px 34px;
+}
+
+.form-card { position: sticky; top: 80px; }
+
+/* 포스터가 준비되면 .poster 블록의 주석만 풀면 됩니다 */
+.poster { margin: -36px -34px 30px; display: block; }
+.poster img { width: 100%; display: block; }
+
+.brief-heading,
+.form-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.brief-note,
+.form-note {
+  font-size: 13px;
+  color: var(--gray-light);
+  margin-bottom: 30px;
+  line-height: 1.65;
+}
+
+.info-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+
+.info-table tr { border-bottom: 1px solid var(--border); }
+.info-table tr:first-child { border-top: 2px solid var(--black); }
+.info-table tr:last-child { border-bottom: none; }
+
+.info-table td { padding: 14px 4px; vertical-align: top; }
+
+.info-table td:first-child {
+  color: var(--gray);
+  font-weight: 500;
+  width: 74px;
+  white-space: nowrap;
+}
+
+.info-table td:last-child { color: var(--black); }
+.info-table .sub { color: var(--gray); font-size: 14px; }
+
+/* ── FORM ──────────────────────────────── */
+.form-row { margin-bottom: 18px; }
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-dark);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.2s;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.form-input:focus { border-color: var(--accent); }
+
+.form-submit {
+  display: block;
+  width: 100%;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 15px 32px;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+  margin-top: 22px;
+}
+
+.form-submit:hover { background: var(--accent); }
+.form-submit:disabled { opacity: 0.55; cursor: default; }
+
+.form-error {
+  display: none;
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #b3261e;
+}
+
+.form-error.show { display: block; }
+.form-error a { color: var(--accent); font-weight: 700; }
+
+.form-success { display: none; padding: 24px 0; }
+.form-success.show { display: block; }
+
+.success-check { font-size: 32px; margin-bottom: 14px; color: var(--accent); }
+.success-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.success-msg { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+/* ── ABOUT ─────────────────────────────── */
+.about-title {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.about-en { font-size: 14px; color: var(--gray-light); margin-bottom: 26px; }
+
+.about-desc {
+  font-size: 15px;
+  color: var(--gray-dark);
+  max-width: 700px;
+  line-height: 1.9;
+  margin-bottom: 44px;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  max-width: 1000px;
+}
+
+.activity-cell { background: var(--white); padding: 26px 24px; }
+
+.activity-cell h3 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.activity-cell p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+/* 신청 페이지 하단의 짧은 연구회 안내 */
+.intro-strip { background: var(--bg-light); }
+
+.intro-inner { max-width: 760px; }
+
+.intro-inner h2 {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.intro-inner p {
+  font-size: 15px;
+  color: var(--gray-dark);
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.text-link {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 3px;
+}
+
+.text-link:hover { color: var(--accent); }
+
+/* ── ARCHIVE ───────────────────────────── */
+.archive { background: var(--bg-light); }
+
+.recent-list { list-style: none; max-width: 820px; }
+
+.recent-list li {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--gray-dark);
+  line-height: 1.75;
+}
+
+.recent-list li:first-child { padding-top: 0; }
+.recent-list li:last-child { border-bottom: none; }
+
+.recent-list strong { color: var(--black); font-weight: 700; }
+
+.recent-meta {
+  font-size: 13px;
+  color: var(--gray-light);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.recent-summary { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+/* ── PHOTOS ────────────────────────────── */
+.photos { padding: 0 0 8px; margin-top: 56px; }
+
+.photo-group { margin-bottom: 44px; }
+.photo-group:last-child { margin-bottom: 0; }
+
+.photo-group-label {
+  font-size: 12px;
+  color: var(--gray-light);
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.photo-grid img { width: 100%; height: 260px; object-fit: cover; display: block; }
+.photo-single img { width: 100%; max-height: 520px; object-fit: cover; display: block; }
+
+/* ── FOOTER ────────────────────────────── */
+footer {
+  padding: 44px 5vw;
+  font-size: 13px;
+  color: var(--gray-light);
+  border-top: 1px solid var(--border);
+  line-height: 1.9;
+}
+
+footer a { color: var(--gray); }
+
+/* ── RESPONSIVE ────────────────────────── */
+@media (max-width: 900px) {
+  .apply-grid { grid-template-columns: 1fr; gap: 32px; }
+  .form-card { position: static; }
+  .activity-grid { grid-template-columns: 1fr; }
+  .upnext-inner { gap: 24px; }
+}
+
+@media (max-width: 640px) {
+  nav { padding: 0 4vw; }
+  .nav-sub { display: none; }
+  .nav-links { gap: 14px; }
+  .nav-links a.nav-arch { display: none; }
+  section { padding: 60px 5vw; }
+  .hero { padding: 116px 5vw 56px; min-height: 72vh; }
+  .hero.hero-short { min-height: 58vh; }
+  .brief-card, .form-card { padding: 28px 22px; }
+  .poster { margin: -28px -22px 24px; }
+  .upnext-cta { width: 100%; text-align: center; }
+  .photo-grid { grid-template-columns: 1fr; }
+  .photo-grid img { height: 220px; }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────── -->
+<nav>
+  <div class="nav-left">
+    <a href="./" class="nav-brand">Tech&amp;Politics</a>
+    <span class="nav-sub">국회 기술과 정치 연구회</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">연구회 소개</a>
+    <a href="#archive" class="nav-arch">지난 활동</a>
+    <a href="apply.html" class="nav-apply">세미나 신청</a>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <p class="hero-label">국회 기술과 정치 연구회 &middot; Tech &amp; Politics</p>
+    <h1 class="hero-title">기술이 정치를<br>만나는 곳에서<br>일하고 연구합니다</h1>
+    <p class="hero-sub" style="margin-bottom:36px">에너지 &middot; AI &middot; 조선 &middot; 방산 &middot; 핵심광물 &middot; 우주</p>
+    <a href="apply.html" class="hero-cta">다가오는 세미나 보기 →</a>
+  </div>
+</section>
+
+<!-- ── 다가오는 세미나 배너 ──────────────── -->
+<section class="upnext">
+  <div class="upnext-inner">
+    <div>
+      <!-- ▼▼▼ [홈-1] 다가오는 세미나 ▼▼▼ -->
+      <p class="upnext-tag">다가오는 세미나</p>
+      <h2 class="upnext-title">모든 성장은 결국 전력에서 멈춘다</h2>
+      <p class="upnext-meta">
+        이제경 HD현대 미래기술연구원 책임연구원<br>
+        2026년 9월 22일(화) 오후 6시 &middot; 국회의원회관 제2간담회의실
+      </p>
+      <!-- ▲▲▲ [홈-1] 끝 ▲▲▲ -->
+    </div>
+    <a href="apply.html" class="upnext-cta">신청하기 →</a>
+  </div>
+</section>
+
+<!-- ── ABOUT ─────────────────────────────── -->
+<section id="about">
+  <p class="section-label">About</p>
+  <h2 class="about-title">국회 기술과 정치 연구회</h2>
+  <p class="about-en">Tech &amp; Politics</p>
+  <p class="about-desc">
+    에너지, AI, 조선, 방산, 핵심광물, 우주 — 기술이 정치를 만나는 곳에서 일하고 연구합니다.<br><br>
+    전략기술이 국제정치&middot;안보&middot;외교와 교차하는 지점을 분석하고,
+    정부&middot;산업&middot;전문가와의 교류를 통해 우리의 역할을 탐색합니다.
+  </p>
+
+  <div class="activity-grid">
+    <div class="activity-cell">
+      <h3>국회 세미나</h3>
+      <p>기술 현장의 최전선에 있는 연구자&middot;경영자를 국회로 모셔 듣고 토론합니다.</p>
+    </div>
+    <div class="activity-cell">
+      <h3>브라운백 미팅</h3>
+      <p>점심시간, 데이터와 현안을 놓고 가볍게 그러나 깊게 이야기합니다.</p>
+    </div>
+    <div class="activity-cell">
+      <h3>모닝북클럽</h3>
+      <p>3주에 한 번, 아침에 모여 기술과 정치를 다룬 책을 함께 읽습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ARCHIVE ───────────────────────────── -->
+<section class="archive" id="archive">
+  <p class="section-label">Archive</p>
+  <ul class="recent-list">
+
+    <!-- ▼▼▼ [홈-2] 세미나가 끝나면 이 위치에 새 항목을 추가하세요 ▼▼▼ -->
+    <li>
+      <span class="recent-meta">네 번째 국회 세미나 · 이준 웍스피어 전무 · 2026.07.13. · 국회의원회관 제5간담회의실</span>
+      <strong>「AI가 먼저 삼킨 일자리? 국내 1위 채용 데이터에 물었다」</strong><br>
+      <span class="recent-summary">
+        잡코리아·알바몬 데이터로 본 3년의 변화 — 채용공고는 43% 줄고 입사지원은 2.1배 늘어 공고 1건당 경쟁률이 3.6배로 뛰었다.
+        신입(-48%)과 시니어·중장년(-46%)이 함께 좁아지는 가운데, AI 직무 공고만 상반기 1.7배로 역주행했다.
+      </span>
+    </li>
+    <!-- ▲▲▲ [홈-2] 끝 ▲▲▲ -->
+
+    <li>
+      <span class="recent-meta">세 번째 국회 세미나 · 백순흠 고려아연 사장 · 2026.06.19. · 국회의원회관 제1간담회의실</span>
+      <strong>「자원빈국 대한민국은 어떻게 제련소를 수출했나」</strong><br>
+      <span class="recent-summary">
+        20세기 후반 핵심광물·제련의 주도권을 쥐었던 미국은 21세기 들어 중국에 끌려다니고 있다.
+        적자 산업을 무한정 끌고 갈 수 없는 시장경제, 조정이 어려운 민주주의 체제의 핸디캡, 중국의 압도적 보조금과 저가공세가 겹친 결과다.
+        이 체제의 핸디캡이 구조적 실패로 끝나지 않게 하는 데에, 기술을 읽는 정치와 정치가의 역할이 있다.
+      </span>
+    </li>
+
+    <li>
+      <span class="recent-meta">두 번째 국회 세미나 · 이경전 경희대 교수 · 2026.05.11. · 국회의원회관 제1간담회의실</span>
+      <strong>「AI는 어떻게 우리의 무기가 되는가」</strong><br>
+      <span class="recent-summary">
+        일본·인도 사례처럼 유권자 소통과 공약 만들기에 AI를 활용하는 흐름은 이제 막을 수 없다.
+        의원실 챗봇은 지금 당장 돈 없이도 시작할 수 있는데, 홍보용보다 시민 의견 수렴용으로 활용 가치가 크다.
+      </span>
+    </li>
+
+    <li>
+      <span class="recent-meta">첫 번째 국회 세미나 · 최리군 상무 · 현대차 로보틱스사업실 · 2026.04.17. · 국회의원회관 제5간담회의실</span>
+      <strong>「피지컬AI와 로보틱스, 로보틱스랩의 도전」</strong><br>
+      <span class="recent-summary">
+        Atlas에 집약된 로보틱스와 시장의 열광. 그 화려한 이면에는 결국 이 거대한 흐름을 조율해야 할 정치의 역할이 있다.
+        기술 그 자체보다, 기술을 어떻게 수용하고 사회 시스템을 어떻게 재설계할지가 국가의 명운을 가르는 시대가 되었다.
+      </span>
+    </li>
+
+    <li>
+      <span class="recent-meta">한화오션 현장 특강 · 정인섭 사장 · 2026.01.12. · 한화오션 서울사무소</span>
+      <strong>「한미 조선협력과 조선산업의 미래」</strong><br>
+      <span class="recent-summary">
+        한미 조선협력은 단순한 공장 이전이나 하청 관계가 아니라 기술동맹의 성격을 갖는다.
+        미국의 해군·잠수함 역량을 보완하는 과정에 한국 조선산업이 참여하는 것은, 장기적으로 한국 조선기술을 글로벌 표준으로 끌어올리는 자산이 될 수 있다.
+      </span>
+    </li>
+
+  </ul>
+
+  <div class="photos">
+
+    <div class="photo-group">
+      <p class="photo-group-label">7.1 브라운백 미팅 · 데이터로 보는 6.3 지방선거</p>
+      <div class="photo-single">
+        <img src="images/brownbag-63-election.jpg" alt="7.1 브라운백 미팅 — 데이터로 보는 6.3 지방선거" loading="lazy">
+      </div>
+    </div>
+
+    <div class="photo-group">
+      <p class="photo-group-label">3주 1회 모닝북클럽</p>
+      <div class="photo-single">
+        <img src="images/morning-bookclub-v2.jpg" alt="3주 1회 모닝북클럽" loading="lazy">
+      </div>
+    </div>
+
+    <div class="photo-group">
+      <p class="photo-group-label">세 번째 국회 세미나 · 핵심광물</p>
+      <div class="photo-single">
+        <img src="images/critical-minerals-seminar.jpg" alt="세 번째 국회 세미나 현장 — 핵심광물" loading="lazy">
+      </div>
+    </div>
+
+    <div class="photo-group">
+      <p class="photo-group-label">두 번째 국회 세미나 · AI정치</p>
+      <div class="photo-single">
+        <img src="images/ai-politics-seminar.jpg" alt="두 번째 국회 세미나 현장 — AI정치" loading="lazy">
+      </div>
+    </div>
+
+    <div class="photo-group">
+      <p class="photo-group-label">첫 번째 국회 세미나 · 피지컬AI</p>
+      <div class="photo-grid">
+        <img src="https://siriusiq-glitch.github.io/KakaoTalk_20260424_115048673.jpg" alt="첫 번째 국회 세미나 현장" loading="lazy">
+        <img src="https://siriusiq-glitch.github.io/KakaoTalk_20260424_115048673_01.jpg" alt="첫 번째 국회 세미나 강연" loading="lazy">
+      </div>
+    </div>
+
+    <div class="photo-group">
+      <p class="photo-group-label">한화오션 현장 특강 · 한미조선</p>
+      <div class="photo-grid">
+        <img src="https://siriusiq-glitch.github.io/hanwha1.jpg" alt="한화오션 현장 특강 단체사진" loading="lazy">
+        <img src="https://siriusiq-glitch.github.io/hanwha2.jpg" alt="한화오션 현장 특강 강연 사진" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────── -->
+<footer>
+  국회 기술과 정치 연구회 Tech &amp; Politics<br>
+  문의 &middot; <a href="mailto:tech_n_politics@naver.com">tech_n_politics@naver.com</a>
+</footer>
+
+<script>
+  /* 불러오지 못한 사진은 깨진 아이콘 대신 통째로 감춥니다 */
+  document.querySelectorAll('.photos img').forEach(function (img) {
+    img.addEventListener('error', function () {
+      var g = img.closest('.photo-group');
+      if (g) g.style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

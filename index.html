@@ -119,16 +119,30 @@ nav {
   white-space: nowrap;
 }
 
-.nav-links a:hover { color: var(--black); }
-
-.nav-links a.nav-apply {
-  background: var(--black);
-  color: var(--white);
-  font-weight: 700;
+/* 상단 바의 두 버튼 — 크기와 모양을 맞춘 한 쌍 */
+.nav-links a.nav-btn {
+  display: inline-block;
   padding: 7px 16px;
+  font-weight: 700;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
 }
 
-.nav-links a.nav-apply:hover { background: var(--accent); color: var(--white); }
+.nav-links a.nav-btn:hover {
+  background: var(--accent-light);
+}
+
+.nav-links a.nav-apply {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.nav-links a.nav-apply:hover {
+  background: #15305a;
+  color: var(--white);
+}
 
 /* ── HERO (이미지 없이 CSS만으로) ───────── */
 .hero {
@@ -544,10 +558,11 @@ footer a { color: var(--gray); }
 }
 
 @media (max-width: 640px) {
-  nav { padding: 0 4vw; }
-  .nav-sub { display: none; }
-  .nav-links { gap: 14px; }
-  .nav-links a.nav-arch { display: none; }
+  nav { padding: 0 4vw; gap: 10px; }
+  .nav-brand { font-size: 13px; }
+  .nav-links { gap: 8px; }
+  .nav-links a { font-size: 12px; }
+  .nav-links a.nav-btn { padding: 6px 10px; }
   section { padding: 60px 5vw; }
   .hero { padding: 116px 5vw 56px; min-height: 72vh; }
   .hero.hero-short { min-height: 58vh; }
@@ -656,26 +671,23 @@ footer a { color: var(--gray); }
 <nav>
   <div class="nav-left">
     <img src="images/logo-tp.png" alt="" class="nav-logo">
-    <a href="./" class="nav-brand">Tech&amp;Politics</a>
-    <span class="nav-sub">국회 기술과 정치 연구회</span>
+    <a href="#top" class="nav-brand">국회 기술과 정치 연구회</a>
   </div>
   <div class="nav-links">
-    <a href="#about">연구회 소개</a>
-    <a href="#archive" class="nav-arch">지난 활동</a>
-    <a href="#apply" class="nav-apply">세미나 신청</a>
+    <a href="#about" class="nav-btn">연구회 소개</a>
+    <a href="#apply" class="nav-btn nav-apply">세미나 신청</a>
   </div>
 </nav>
 
 <!-- ── HERO ──────────────────────────────── -->
 <section class="hero" id="top">
   <div class="hero-content">
-    <p class="hero-label">국회 기술과 정치 연구회 &middot; Tech &amp; Politics</p>
+    <p class="hero-label">Tech &amp; Politics</p>
     <h1 class="hero-title"><span class="hl">기술</span>이 <span class="hl">정치</span>를<br>만나는 곳에서<br>일하고 연구합니다</h1>
     <p class="hero-sub">에너지 &middot; AI &middot; 조선 &middot; 방산 &middot; 핵심광물 &middot; 우주</p>
     <!-- ▼▼▼ [홈-1] 다가오는 세미나 ▼▼▼ -->
     <p class="hero-when">다가오는 세미나 &middot; 우주항공 &middot; 11월 24일(화) 오후 6시<br>「KF-21에서 누리호까지, 하늘을 넘어 우주로」</p>
     <!-- ▲▲▲ [홈-1] 끝 ▲▲▲ -->
-    <a href="#apply" class="hero-cta">세미나 신청하기 →</a>
   </div>
 </section>
 
@@ -811,7 +823,7 @@ footer a { color: var(--gray); }
       <strong>「모든 성장은 결국 전력에서 멈춘다」</strong><br>
       <span class="recent-summary">
         SMR을 바다로 가져가는 벽은 기술이 아니라 제도.
-        국제 규칙이 다시 쓰이는 지금, 조선과 원자력을 함께 가진 한국이 이를 주도하도록 병목을 치우는 것이 정치의 과제임
+        국제 규칙이 다시 쓰이는 지금, 조선과 원자력을 함께 가진 한국이 이를 주도하도록 병목을 치우는 것이 정치의 과제
       </span>
       <div class="recent-photo">
         <img src="images/smr-seminar-2026-09.jpg" alt="9월 국회 세미나 현장" loading="lazy">
@@ -822,7 +834,7 @@ footer a { color: var(--gray); }
       <span class="recent-meta">출범총회 · 2026.08.27. · 국회의원회관 제5간담회의실</span>
       <strong>「'국회 기술과 정치 연구회' 정식 출범」</strong><br>
       <span class="recent-summary">
-        8개월 활동을 기반으로 백경훈 초대회장을 선출하며 정식 출범함
+        8개월 활동을 기반으로 백경훈 초대회장을 선출하며 정식 출범
       </span>
     </li>
 
@@ -831,7 +843,7 @@ footer a { color: var(--gray); }
       <strong>「AI가 먼저 삼킨 일자리? 국내 1위 채용 데이터에 물었다」</strong><br>
       <span class="recent-summary">
         잡코리아·알바몬 데이터로 본 3년의 변화 — 채용공고 43% 감소, 입사지원 2.1배 증가로 공고 1건당 경쟁률 3.6배 상승.
-        신입(-48%)과 시니어·중장년(-46%)이 함께 좁아지는 가운데 AI 직무 공고만 상반기 1.7배로 역주행함
+        신입(-48%)과 시니어·중장년(-46%)이 함께 좁아지는 가운데 AI 직무 공고만 상반기 1.7배로 역주행
       </span>
     </li>
     <!-- ▲▲▲ [홈-4] 끝 ▲▲▲ -->
@@ -841,7 +853,7 @@ footer a { color: var(--gray); }
       <strong>「자원빈국 대한민국은 어떻게 제련소를 수출했나」</strong><br>
       <span class="recent-summary">
         20세기 후반 핵심광물·제련의 주도권을 쥐었던 미국이 21세기 들어 중국에 끌려다니는 중.
-        적자 산업을 무한정 끌고 갈 수 없는 시장경제, 조정이 어려운 민주주의 체제의 핸디캡, 중국의 압도적 보조금과 저가공세가 겹친 결과임.
+        적자 산업을 무한정 끌고 갈 수 없는 시장경제, 조정이 어려운 민주주의 체제의 핸디캡, 중국의 압도적 보조금과 저가공세가 겹친 결과.
         이 핸디캡이 구조적 실패로 끝나지 않게 하는 데에 기술을 읽는 정치의 역할이 있음
       </span>
       <div class="recent-photo">
@@ -866,7 +878,7 @@ footer a { color: var(--gray); }
       <strong>「피지컬AI와 로보틱스, 로보틱스랩의 도전」</strong><br>
       <span class="recent-summary">
         Atlas에 집약된 로보틱스와 시장의 열광. 그 이면에는 이 거대한 흐름을 조율해야 할 정치의 역할이 있음.
-        기술 그 자체보다 기술을 어떻게 수용하고 사회 시스템을 어떻게 재설계할지가 국가의 명운을 가르는 시대임
+        기술 그 자체보다 기술을 어떻게 수용하고 사회 시스템을 어떻게 재설계할지가 국가의 명운을 가르는 시대
       </span>
       <div class="recent-photo">
         <img src="https://siriusiq-glitch.github.io/KakaoTalk_20260424_115048673.jpg" alt="첫 번째 국회 세미나 현장" loading="lazy">

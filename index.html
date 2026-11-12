@@ -5,27 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ══════════════════════════════════════════════════════════════
-       [소개 홈] 연구회 상설 페이지입니다.
-       세미나가 바뀔 때 이 파일에서 고칠 곳은 딱 두 군데입니다.
+       연구회 상설 페이지 — 소개와 세미나 신청이 한 장에 들어 있습니다.
+       세미나가 바뀔 때 고칠 곳은 네 군데입니다.
+         [홈-0] 공유 미리보기(카카오톡) 제목·설명·이미지
          [홈-1] 히어로의 다가오는 세미나 한 줄
-         [홈-2] 지난 활동 아카이브에 끝난 회차 추가
-       세미나 내용 자체는 apply.html 에서 고칩니다.
+         [홈-2] 세미나 안내 카드 (포스터 자리도 여기)
+         [홈-3] 접수 메일 제목 / 완료 안내 문구  (파일 맨 아래 스크립트)
+       세미나가 끝나면 [홈-4] 아카이브에 항목을 추가하세요.
+       apply.html 은 예전 주소를 유지하기 위한 안내 페이지입니다. 건드릴 필요 없습니다.
        ══════════════════════════════════════════════════════════════ -->
 
-  <title>국회 기술과 정치 연구회 Tech &amp; Politics</title>
-  <meta name="description" content="에너지, AI, 조선, 방산, 핵심광물, 우주 — 전략기술이 국제정치·안보·외교와 교차하는 지점을 분석하는 국회 연구모임입니다.">
-  <meta property="og:title" content="국회 기술과 정치 연구회 Tech &amp; Politics">
-  <meta property="og:description" content="기술이 정치를 만나는 곳에서 일하고 연구합니다. 에너지 · AI · 조선 · 방산 · 핵심광물 · 우주">
-  <meta property="og:image" content="https://siriusiq-glitch.github.io/tech-n-politics/images/og-home.jpg">
+  <!-- ▼▼▼ [홈-0] 공유 미리보기(카카오톡) — 세미나마다 교체 ▼▼▼ -->
+  <title>국회 기술과 정치 연구회 Tech &amp; Politics | 11월 세미나 신청</title>
+  <meta name="description" content="2026년 11월 24일(화) 오후 6시, 국회의원회관 제1간담회의실. 한화에어로스페이스 최세현 상무·김종호 상무 발제.">
+  <meta property="og:title" content="[11월 국회 세미나] KF-21에서 누리호까지, 하늘을 넘어 우주로">
+  <meta property="og:description" content="2026년 11월 24일(화) 오후 6시 · 국회의원회관 제1간담회의실 · 한화에어로스페이스 최세현 상무·김종호 상무">
+  <meta property="og:image" content="https://siriusiq-glitch.github.io/tech-n-politics/images/og-2026-11.jpg">
+  <meta name="twitter:title" content="[11월 국회 세미나] KF-21에서 누리호까지, 하늘을 넘어 우주로">
+  <meta name="twitter:description" content="2026년 11월 24일(화) 오후 6시 · 국회의원회관 제1간담회의실 · 한화에어로스페이스 최세현 상무·김종호 상무">
+  <meta name="twitter:image" content="https://siriusiq-glitch.github.io/tech-n-politics/images/og-2026-11.jpg">
+  <!-- 세미나가 없는 기간에는 이미지를 images/og-home.jpg 로, 제목·설명을 연구회 소개로 되돌리세요 -->
+  <!-- ▲▲▲ [홈-0] 끝 ▲▲▲ -->
+
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="국회 기술과 정치 연구회 Tech &amp; Politics">
   <meta property="og:url" content="https://siriusiq-glitch.github.io/tech-n-politics/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="국회 기술과 정치 연구회 Tech &amp; Politics">
-  <meta name="twitter:description" content="기술이 정치를 만나는 곳에서 일하고 연구합니다.">
-  <meta name="twitter:image" content="https://siriusiq-glitch.github.io/tech-n-politics/images/og-home.jpg">
 
   <link rel="icon" type="image/png" href="images/logo-tp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -581,6 +588,43 @@ footer a { color: var(--gray); }
     }
 
     .activity-grid + .activity-label { margin-top: 40px; }
+
+    /* 잘리지 않고 전체가 보이는 사진 */
+    .photo-single.photo-full img {
+      max-height: none;
+      height: auto;
+      object-fit: contain;
+      max-width: 1000px;
+    }
+
+    /* 세미나 안내 카드 */
+    .brief-kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .brief-title {
+      font-size: clamp(21px, 2.4vw, 27px);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .brief-lead {
+      font-size: 15px;
+      color: var(--gray-dark);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    /* 포스터만 들어가는 카드 */
+    .brief-card.poster-only { padding: 0; border: none; background: none; }
+    .brief-card.poster-only .poster { margin: 0; }
+    .brief-card.poster-only .poster img { border: 1px solid var(--border); }
   </style>
 </head>
 <body>
@@ -595,7 +639,7 @@ footer a { color: var(--gray); }
   <div class="nav-links">
     <a href="#about">연구회 소개</a>
     <a href="#archive" class="nav-arch">지난 활동</a>
-    <a href="apply.html" class="nav-apply">세미나 신청</a>
+    <a href="#apply" class="nav-apply">세미나 신청</a>
   </div>
 </nav>
 
@@ -606,9 +650,87 @@ footer a { color: var(--gray); }
     <h1 class="hero-title"><span class="hl">기술</span>이 <span class="hl">정치</span>를<br>만나는 곳에서<br>일하고 연구합니다</h1>
     <p class="hero-sub">에너지 &middot; AI &middot; 조선 &middot; 방산 &middot; 핵심광물 &middot; 우주</p>
     <!-- ▼▼▼ [홈-1] 다가오는 세미나 ▼▼▼ -->
-    <p class="hero-when">다가오는 세미나 &middot; 9월 22일(화) 오후 6시<br>「모든 성장은 결국 전력에서 멈춘다」</p>
+    <p class="hero-when">다가오는 세미나 &middot; 11월 24일(화) 오후 6시<br>「KF-21에서 누리호까지, 하늘을 넘어 우주로」</p>
     <!-- ▲▲▲ [홈-1] 끝 ▲▲▲ -->
-    <a href="apply.html" class="hero-cta">세미나 신청하기 →</a>
+    <a href="#apply" class="hero-cta">세미나 신청하기 →</a>
+  </div>
+</section>
+
+<!-- ── APPLY : 이번 세미나 + 신청 ────────── -->
+<section class="apply" id="apply">
+  <p class="section-label">Apply</p>
+  <div class="apply-grid">
+
+    <!-- 왼쪽: 세미나 안내 -->
+    <div class="brief-card">
+      <!-- ▼▼▼ [홈-2] 세미나 안내 ▼▼▼ -->
+
+      <!-- 포스터가 준비되면 아래 3줄의 주석을 풀고, 위 <div class="brief-card">를
+           <div class="brief-card poster-only">로 바꾸면 포스터만 깔끔하게 들어갑니다.
+      <div class="poster">
+        <img src="images/poster-2026-11.jpg" alt="11월 국회 세미나 포스터">
+      </div>
+      -->
+
+      <p class="brief-kicker">11월 국회 세미나</p>
+      <h2 class="brief-title">KF-21에서 누리호까지,<br>하늘을 넘어 우주로</h2>
+      <p class="brief-lead">대한민국 우주항공의 도약과 정치의 역할</p>
+
+      <table class="info-table">
+        <tr>
+          <td>발제</td>
+          <td>한화에어로스페이스<br>
+            <span class="sub">(우주) 우주사업전략담당 최세현 상무<br>
+            (항공) 첨단엔진사업단장 김종호 상무</span></td>
+        </tr>
+        <tr>
+          <td>일시</td>
+          <td>2026년 11월 24일(화) 오후 6시</td>
+        </tr>
+        <tr>
+          <td>장소</td>
+          <td>국회의원회관 제1간담회의실</td>
+        </tr>
+        <tr>
+          <td>주최</td>
+          <td>국회 기술과 정치 연구회 Tech &amp; Politics</td>
+        </tr>
+      </table>
+      <!-- ▲▲▲ [홈-2] 끝 ▲▲▲ -->
+    </div>
+
+    <!-- 오른쪽: 신청 폼 -->
+    <div class="form-card" id="form">
+      <div id="formWrap">
+        <h2 class="form-title">세미나 신청하기</h2>
+        <p class="form-note">신청하기를 누르면 바로 접수됩니다.<br>신청 내용은 tech_n_politics@naver.com으로 전달됩니다.</p>
+
+        <form id="applyForm">
+          <div class="form-row">
+            <label class="form-label" for="name">이름 <span style="color:#999">*</span></label>
+            <input class="form-input" type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="org">소속 <span style="color:#999">*</span></label>
+            <input class="form-input" type="text" id="org" name="org" required autocomplete="organization">
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="contact">연락처 <span style="color:#999">*</span></label>
+            <input class="form-input" type="text" id="contact" name="contact" required autocomplete="tel">
+          </div>
+          <button type="submit" class="form-submit">신청하기 →</button>
+        </form>
+
+        <p class="form-error" id="formError"></p>
+
+        <div class="form-success" id="formSuccess">
+          <p class="success-check">✓</p>
+          <p class="success-title">신청이 완료되었습니다.</p>
+          <p class="success-msg" id="successMsg"></p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -658,7 +780,18 @@ footer a { color: var(--gray); }
   <p class="section-label">Archive</p>
   <ul class="recent-list">
 
-    <!-- ▼▼▼ [홈-2] 세미나가 끝나면 이 위치에 새 항목을 추가하세요 ▼▼▼ -->
+    <!-- ▼▼▼ [홈-4] 세미나가 끝나면 이 위치에 새 항목을 추가하세요 ▼▼▼ -->
+    <li>
+      <span class="recent-meta">9월 국회 세미나 · 이제경 HD한국조선해양 미래기술연구원 책임 · 2026.09.22. · 국회의원회관 제2간담회의실</span>
+      <strong>「모든 성장은 결국 전력에서 멈춘다」</strong><br>
+      <span class="recent-summary">
+        SMR을 바다로 가져가는 데 남은 벽은 기술이 아니라 제도다.
+        1960~70년대 원자력 상선이 사라진 것도 성능이 아니라 인허가와 배상책임의 공백 때문이었고,
+        IMO와 IAEA는 2030년대 초를 목표로 그 규칙을 이제야 다시 쓰고 있다.
+        조선과 원자력을 함께 가진 거의 유일한 나라에게, 그 규칙이 만들어지는 자리에 앉는 일은 산업의 문제가 아니라 정치의 과제다.
+      </span>
+    </li>
+
     <li>
       <span class="recent-meta">출범총회 · 2026.08.27. · 국회의원회관 제5간담회의실</span>
       <strong>「'국회 기술과 정치 연구회' 정식 출범」</strong><br>
@@ -675,7 +808,7 @@ footer a { color: var(--gray); }
         신입(-48%)과 시니어·중장년(-46%)이 함께 좁아지는 가운데, AI 직무 공고만 상반기 1.7배로 역주행했다.
       </span>
     </li>
-    <!-- ▲▲▲ [홈-2] 끝 ▲▲▲ -->
+    <!-- ▲▲▲ [홈-4] 끝 ▲▲▲ -->
 
     <li>
       <span class="recent-meta">세 번째 국회 세미나 · 백순흠 고려아연 사장 · 2026.06.19. · 국회의원회관 제1간담회의실</span>
@@ -717,6 +850,13 @@ footer a { color: var(--gray); }
   </ul>
 
   <div class="photos">
+
+    <div class="photo-group">
+      <p class="photo-group-label">9월 국회 세미나 · SMR과 전력</p>
+      <div class="photo-single photo-full">
+        <img src="images/smr-seminar-2026-09.jpg" alt="9월 국회 세미나 현장 — 모든 성장은 결국 전력에서 멈춘다" loading="lazy">
+      </div>
+    </div>
 
     <div class="photo-group">
       <p class="photo-group-label">7.1 브라운백 미팅 · 데이터로 보는 6.3 지방선거</p>
@@ -771,6 +911,77 @@ footer a { color: var(--gray); }
   국회 기술과 정치 연구회 Tech &amp; Politics<br>
   문의 &middot; <a href="mailto:tech_n_politics@naver.com">tech_n_politics@naver.com</a>
 </footer>
+
+<script>
+  /* ▼▼▼ [홈-3] 접수 메일 제목 / 완료 안내 문구 ▼▼▼ */
+  const SEMINAR = {
+    title: 'KF-21에서 누리호까지, 하늘을 넘어 우주로',
+    date:  '2026.11.24',
+    when:  '11월 24일(화) 오후 6시',
+    place: '국회의원회관 제1간담회의실'
+  };
+  /* ▲▲▲ [홈-3] 끝 ▲▲▲ */
+
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/maqgrnar';
+  const MAIL_TO = 'tech_n_politics@naver.com';
+  const SUBJECT = `[세미나 신청] ${SEMINAR.title} (${SEMINAR.date})`;
+
+  const form = document.getElementById('applyForm');
+  const success = document.getElementById('formSuccess');
+  const errorBox = document.getElementById('formError');
+  const submitBtn = form.querySelector('.form-submit');
+
+  document.getElementById('successMsg').textContent =
+    `${SEMINAR.when}, ${SEMINAR.place}에서 뵙겠습니다.`;
+
+  function mailtoLink(data) {
+    const body = encodeURIComponent(`이름: ${data.이름}\n소속: ${data.소속}\n연락처: ${data.연락처}`);
+    return `mailto:${MAIL_TO}?subject=${encodeURIComponent(SUBJECT)}&body=${body}`;
+  }
+
+  function showSuccess() {
+    form.style.display = 'none';
+    document.querySelector('.form-title').style.display = 'none';
+    document.querySelector('.form-note').style.display = 'none';
+    errorBox.classList.remove('show');
+    success.classList.add('show');
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const data = {
+      이름: form.name.value,
+      소속: form.org.value,
+      연락처: form.contact.value,
+      세미나: `${SEMINAR.title} (${SEMINAR.date})`,
+      _subject: SUBJECT
+    };
+
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '전송 중…';
+    errorBox.classList.remove('show');
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) { showSuccess(); return; }
+      throw new Error('HTTP ' + res.status);
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+      errorBox.innerHTML =
+        '신청 전송이 원활하지 않습니다. ' +
+        '<a href="' + mailtoLink(data) + '">여기를 눌러 이메일로 신청</a>하시거나 ' +
+        MAIL_TO + ' 으로 이름·소속·연락처를 보내주세요.';
+      errorBox.classList.add('show');
+    }
+  });
+</script>
 
 <script>
   /* 불러오지 못한 사진은 깨진 아이콘 대신 통째로 감춥니다 */

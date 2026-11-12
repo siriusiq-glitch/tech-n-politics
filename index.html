@@ -625,6 +625,29 @@ footer a { color: var(--gray); }
     .brief-card.poster-only { padding: 0; border: none; background: none; }
     .brief-card.poster-only .poster { margin: 0; }
     .brief-card.poster-only .poster img { border: 1px solid var(--border); }
+
+    /* 아카이브 항목 안의 현장 사진 */
+    .recent-photo { margin-top: 18px; }
+
+    .recent-photo img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    .activity-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 2px;
+    }
+
+    .activity-link:hover { color: var(--black); }
+    .info-table .role { color: var(--gray-light); }
   </style>
 </head>
 <body>
@@ -650,7 +673,7 @@ footer a { color: var(--gray); }
     <h1 class="hero-title"><span class="hl">기술</span>이 <span class="hl">정치</span>를<br>만나는 곳에서<br>일하고 연구합니다</h1>
     <p class="hero-sub">에너지 &middot; AI &middot; 조선 &middot; 방산 &middot; 핵심광물 &middot; 우주</p>
     <!-- ▼▼▼ [홈-1] 다가오는 세미나 ▼▼▼ -->
-    <p class="hero-when">다가오는 세미나 &middot; 11월 24일(화) 오후 6시<br>「KF-21에서 누리호까지, 하늘을 넘어 우주로」</p>
+    <p class="hero-when">다가오는 세미나 &middot; 우주항공 &middot; 11월 24일(화) 오후 6시<br>「KF-21에서 누리호까지, 하늘을 넘어 우주로」</p>
     <!-- ▲▲▲ [홈-1] 끝 ▲▲▲ -->
     <a href="#apply" class="hero-cta">세미나 신청하기 →</a>
   </div>
@@ -680,8 +703,8 @@ footer a { color: var(--gray); }
         <tr>
           <td>발제</td>
           <td>한화에어로스페이스<br>
-            <span class="sub">(우주) 우주사업전략담당 최세현 상무<br>
-            (항공) 첨단엔진사업단장 김종호 상무</span></td>
+            <span class="sub">(우주) 최세현 상무 <span class="role">우주사업전략담당</span><br>
+            (항공) 김종호 상무 <span class="role">첨단엔진사업단장</span></span></td>
         </tr>
         <tr>
           <td>일시</td>
@@ -693,7 +716,7 @@ footer a { color: var(--gray); }
         </tr>
         <tr>
           <td>주최</td>
-          <td>국회 기술과 정치 연구회 Tech &amp; Politics</td>
+          <td>국회 기술과 정치 연구회<br><span class="role">Tech &amp; Politics</span></td>
         </tr>
       </table>
       <!-- ▲▲▲ [홈-2] 끝 ▲▲▲ -->
@@ -703,7 +726,7 @@ footer a { color: var(--gray); }
     <div class="form-card" id="form">
       <div id="formWrap">
         <h2 class="form-title">세미나 신청하기</h2>
-        <p class="form-note">신청하기를 누르면 바로 접수됩니다.<br>신청 내용은 tech_n_politics@naver.com으로 전달됩니다.</p>
+        <p class="form-note">tech_n_politics@naver.com으로 전달됩니다</p>
 
         <form id="applyForm">
           <div class="form-row">
@@ -750,15 +773,15 @@ footer a { color: var(--gray); }
   <div class="activity-grid">
     <div class="activity-cell">
       <h3>국회 세미나</h3>
-      <p>기술 현장의 최전선에 있는 연구자&middot;경영자를 국회로 모셔 듣고 토론합니다.</p>
+      <p>월 1회, 기술 현장 이해와 정치의 역할 토론</p>
     </div>
     <div class="activity-cell">
       <h3>브라운백 미팅</h3>
-      <p>점심시간, 데이터와 현안을 놓고 가볍게 그러나 깊게 이야기합니다.</p>
+      <p>점심시간, 데이터 활용 등 실무 교육과 토론</p>
     </div>
     <div class="activity-cell">
       <h3>모닝북클럽</h3>
-      <p>3주에 한 번, 아침에 모여 기술과 정치를 다룬 책을 함께 읽습니다.</p>
+      <p>3주 1회, 글로벌 베스트셀러 아침 독서토론</p>
     </div>
   </div>
 
@@ -766,11 +789,13 @@ footer a { color: var(--gray); }
   <div class="activity-grid">
     <div class="activity-cell">
       <h3>주간조선 정기칼럼</h3>
-      <p>2026년 하반기부터 주간조선에 기술과 정치를 주제로 정기 칼럼을 씁니다.</p>
+      <p>기술과 정치를 주제로 정기 칼럼 기고</p>
+      <!-- ▼ 새 칼럼이 나오면 아래 주소를 바꿔주세요 ▼ -->
+      <a class="activity-link" href="https://n.news.naver.com/article/053/0000062050?sid=105" target="_blank" rel="noopener">최근 칼럼 읽기 →</a>
     </div>
     <div class="activity-cell">
       <h3>넥스트 이코노미 포럼</h3>
-      <p>여의도연구원과 함께 다음 경제를 만들 기술 의제를 다룹니다.</p>
+      <p>여의도연구원과 경제&middot;기술 담론 마련</p>
     </div>
   </div>
 </section>
@@ -785,18 +810,19 @@ footer a { color: var(--gray); }
       <span class="recent-meta">9월 국회 세미나 · 이제경 HD한국조선해양 미래기술연구원 책임 · 2026.09.22. · 국회의원회관 제2간담회의실</span>
       <strong>「모든 성장은 결국 전력에서 멈춘다」</strong><br>
       <span class="recent-summary">
-        SMR을 바다로 가져가는 데 남은 벽은 기술이 아니라 제도다.
-        1960~70년대 원자력 상선이 사라진 것도 성능이 아니라 인허가와 배상책임의 공백 때문이었고,
-        IMO와 IAEA는 2030년대 초를 목표로 그 규칙을 이제야 다시 쓰고 있다.
-        조선과 원자력을 함께 가진 거의 유일한 나라에게, 그 규칙이 만들어지는 자리에 앉는 일은 산업의 문제가 아니라 정치의 과제다.
+        SMR을 바다로 가져가는 벽은 기술이 아니라 제도.
+        국제 규칙이 다시 쓰이는 지금, 조선과 원자력을 함께 가진 한국이 이를 주도하도록 병목을 치우는 것이 정치의 과제임
       </span>
+      <div class="recent-photo">
+        <img src="images/smr-seminar-2026-09.jpg" alt="9월 국회 세미나 현장" loading="lazy">
+      </div>
     </li>
 
     <li>
       <span class="recent-meta">출범총회 · 2026.08.27. · 국회의원회관 제5간담회의실</span>
       <strong>「'국회 기술과 정치 연구회' 정식 출범」</strong><br>
       <span class="recent-summary">
-        8개월 활동을 기반으로, 백경훈 초대회장을 선출하며 정식 출범했다.
+        8개월 활동을 기반으로 백경훈 초대회장을 선출하며 정식 출범함
       </span>
     </li>
 
@@ -804,8 +830,8 @@ footer a { color: var(--gray); }
       <span class="recent-meta">네 번째 국회 세미나 · 이준 웍스피어 전무 · 2026.07.13. · 국회의원회관 제5간담회의실</span>
       <strong>「AI가 먼저 삼킨 일자리? 국내 1위 채용 데이터에 물었다」</strong><br>
       <span class="recent-summary">
-        잡코리아·알바몬 데이터로 본 3년의 변화 — 채용공고는 43% 줄고 입사지원은 2.1배 늘어 공고 1건당 경쟁률이 3.6배로 뛰었다.
-        신입(-48%)과 시니어·중장년(-46%)이 함께 좁아지는 가운데, AI 직무 공고만 상반기 1.7배로 역주행했다.
+        잡코리아·알바몬 데이터로 본 3년의 변화 — 채용공고 43% 감소, 입사지원 2.1배 증가로 공고 1건당 경쟁률 3.6배 상승.
+        신입(-48%)과 시니어·중장년(-46%)이 함께 좁아지는 가운데 AI 직무 공고만 상반기 1.7배로 역주행함
       </span>
     </li>
     <!-- ▲▲▲ [홈-4] 끝 ▲▲▲ -->
@@ -814,94 +840,59 @@ footer a { color: var(--gray); }
       <span class="recent-meta">세 번째 국회 세미나 · 백순흠 고려아연 사장 · 2026.06.19. · 국회의원회관 제1간담회의실</span>
       <strong>「자원빈국 대한민국은 어떻게 제련소를 수출했나」</strong><br>
       <span class="recent-summary">
-        20세기 후반 핵심광물·제련의 주도권을 쥐었던 미국은 21세기 들어 중국에 끌려다니고 있다.
-        적자 산업을 무한정 끌고 갈 수 없는 시장경제, 조정이 어려운 민주주의 체제의 핸디캡, 중국의 압도적 보조금과 저가공세가 겹친 결과다.
-        이 체제의 핸디캡이 구조적 실패로 끝나지 않게 하는 데에, 기술을 읽는 정치와 정치가의 역할이 있다.
+        20세기 후반 핵심광물·제련의 주도권을 쥐었던 미국이 21세기 들어 중국에 끌려다니는 중.
+        적자 산업을 무한정 끌고 갈 수 없는 시장경제, 조정이 어려운 민주주의 체제의 핸디캡, 중국의 압도적 보조금과 저가공세가 겹친 결과임.
+        이 핸디캡이 구조적 실패로 끝나지 않게 하는 데에 기술을 읽는 정치의 역할이 있음
       </span>
+      <div class="recent-photo">
+        <img src="images/critical-minerals-seminar.jpg" alt="세 번째 국회 세미나 현장 — 핵심광물" loading="lazy">
+      </div>
     </li>
 
     <li>
       <span class="recent-meta">두 번째 국회 세미나 · 이경전 경희대 교수 · 2026.05.11. · 국회의원회관 제1간담회의실</span>
       <strong>「AI는 어떻게 우리의 무기가 되는가」</strong><br>
       <span class="recent-summary">
-        일본·인도 사례처럼 유권자 소통과 공약 만들기에 AI를 활용하는 흐름은 이제 막을 수 없다.
-        의원실 챗봇은 지금 당장 돈 없이도 시작할 수 있는데, 홍보용보다 시민 의견 수렴용으로 활용 가치가 크다.
+        일본·인도 사례처럼 유권자 소통과 공약 만들기에 AI를 활용하는 흐름은 이제 막을 수 없음.
+        의원실 챗봇은 지금 당장 돈 없이도 시작 가능하며, 홍보용보다 시민 의견 수렴용으로 활용 가치가 큼
       </span>
+      <div class="recent-photo">
+        <img src="images/ai-politics-seminar.jpg" alt="두 번째 국회 세미나 현장 — AI정치" loading="lazy">
+      </div>
     </li>
 
     <li>
       <span class="recent-meta">첫 번째 국회 세미나 · 최리군 상무 · 현대차 로보틱스사업실 · 2026.04.17. · 국회의원회관 제5간담회의실</span>
       <strong>「피지컬AI와 로보틱스, 로보틱스랩의 도전」</strong><br>
       <span class="recent-summary">
-        Atlas에 집약된 로보틱스와 시장의 열광. 그 화려한 이면에는 결국 이 거대한 흐름을 조율해야 할 정치의 역할이 있다.
-        기술 그 자체보다, 기술을 어떻게 수용하고 사회 시스템을 어떻게 재설계할지가 국가의 명운을 가르는 시대가 되었다.
+        Atlas에 집약된 로보틱스와 시장의 열광. 그 이면에는 이 거대한 흐름을 조율해야 할 정치의 역할이 있음.
+        기술 그 자체보다 기술을 어떻게 수용하고 사회 시스템을 어떻게 재설계할지가 국가의 명운을 가르는 시대임
       </span>
+      <div class="recent-photo">
+        <img src="https://siriusiq-glitch.github.io/KakaoTalk_20260424_115048673.jpg" alt="첫 번째 국회 세미나 현장" loading="lazy">
+      </div>
     </li>
 
     <li>
       <span class="recent-meta">한화오션 현장 특강 · 정인섭 사장 · 2026.01.12. · 한화오션 서울사무소</span>
       <strong>「한미 조선협력과 조선산업의 미래」</strong><br>
       <span class="recent-summary">
-        한미 조선협력은 단순한 공장 이전이나 하청 관계가 아니라 기술동맹의 성격을 갖는다.
-        미국의 해군·잠수함 역량을 보완하는 과정에 한국 조선산업이 참여하는 것은, 장기적으로 한국 조선기술을 글로벌 표준으로 끌어올리는 자산이 될 수 있다.
+        한미 조선협력은 단순한 공장 이전이나 하청 관계가 아니라 기술동맹의 성격.
+        미국의 해군·잠수함 역량을 보완하는 과정에 한국 조선산업이 참여하는 것은 장기적으로 한국 조선기술을 글로벌 표준으로 끌어올리는 자산이 될 수 있음
       </span>
+      <div class="recent-photo">
+        <img src="https://siriusiq-glitch.github.io/hanwha1.jpg" alt="한화오션 현장 특강" loading="lazy">
+      </div>
     </li>
 
   </ul>
 
   <div class="photos">
-
-    <div class="photo-group">
-      <p class="photo-group-label">9월 국회 세미나 · SMR과 전력</p>
-      <div class="photo-single photo-full">
-        <img src="images/smr-seminar-2026-09.jpg" alt="9월 국회 세미나 현장 — 모든 성장은 결국 전력에서 멈춘다" loading="lazy">
-      </div>
+    <p class="photo-group-label">정기 활동 — 브라운백 미팅 · 모닝북클럽</p>
+    <div class="photo-grid">
+      <img src="images/brownbag-63-election.jpg" alt="브라운백 미팅" loading="lazy">
+      <img src="images/morning-bookclub-v2.jpg" alt="모닝북클럽" loading="lazy">
     </div>
-
-    <div class="photo-group">
-      <p class="photo-group-label">7.1 브라운백 미팅 · 데이터로 보는 6.3 지방선거</p>
-      <div class="photo-single">
-        <img src="images/brownbag-63-election.jpg" alt="7.1 브라운백 미팅 — 데이터로 보는 6.3 지방선거" loading="lazy">
-      </div>
-    </div>
-
-    <div class="photo-group">
-      <p class="photo-group-label">3주 1회 모닝북클럽</p>
-      <div class="photo-single">
-        <img src="images/morning-bookclub-v2.jpg" alt="3주 1회 모닝북클럽" loading="lazy">
-      </div>
-    </div>
-
-    <div class="photo-group">
-      <p class="photo-group-label">세 번째 국회 세미나 · 핵심광물</p>
-      <div class="photo-single">
-        <img src="images/critical-minerals-seminar.jpg" alt="세 번째 국회 세미나 현장 — 핵심광물" loading="lazy">
-      </div>
-    </div>
-
-    <div class="photo-group">
-      <p class="photo-group-label">두 번째 국회 세미나 · AI정치</p>
-      <div class="photo-single">
-        <img src="images/ai-politics-seminar.jpg" alt="두 번째 국회 세미나 현장 — AI정치" loading="lazy">
-      </div>
-    </div>
-
-    <div class="photo-group">
-      <p class="photo-group-label">첫 번째 국회 세미나 · 피지컬AI</p>
-      <div class="photo-grid">
-        <img src="https://siriusiq-glitch.github.io/KakaoTalk_20260424_115048673.jpg" alt="첫 번째 국회 세미나 현장" loading="lazy">
-        <img src="https://siriusiq-glitch.github.io/KakaoTalk_20260424_115048673_01.jpg" alt="첫 번째 국회 세미나 강연" loading="lazy">
-      </div>
-    </div>
-
-    <div class="photo-group">
-      <p class="photo-group-label">한화오션 현장 특강 · 한미조선</p>
-      <div class="photo-grid">
-        <img src="https://siriusiq-glitch.github.io/hanwha1.jpg" alt="한화오션 현장 특강 단체사진" loading="lazy">
-        <img src="https://siriusiq-glitch.github.io/hanwha2.jpg" alt="한화오션 현장 특강 강연 사진" loading="lazy">
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -985,9 +976,9 @@ footer a { color: var(--gray); }
 
 <script>
   /* 불러오지 못한 사진은 깨진 아이콘 대신 통째로 감춥니다 */
-  document.querySelectorAll('.photos img').forEach(function (img) {
+  document.querySelectorAll('.photos img, .recent-photo img').forEach(function (img) {
     img.addEventListener('error', function () {
-      var g = img.closest('.photo-group');
+      var g = img.closest('.recent-photo') || img.closest('.photo-group') || img.closest('.photos');
       if (g) g.style.display = 'none';
     });
   });
